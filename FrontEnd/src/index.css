@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CampSum Design System - University-focused color palette and styles */
+
+@layer base {
+  :root {
+    /* CampSum Brand Colors - Red Focus */
+    --campsum-blue: 202 100% 62%;
+    --campsum-red: 355 92% 46%;
+    --campsum-white: 0 0% 100%;
+
+    /* Social Media Brand Colors */
+    --instagram-start: 315 100% 72%;
+    --instagram-end: 45 100% 58%;
+    --whatsapp: 142 70% 49%;
+    --gmail: 4 90% 58%;
+    --linkedin: 201 100% 35%;
+    --facebook: 221 44% 41%;
+
+    /* Semantic Design Tokens - Red Theme */
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 355 92% 46%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 355 20% 95%;
+    --secondary-foreground: 355 92% 46%;
+
+    --muted: 355 20% 95%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 202 100% 62%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 355 92% 46%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 355 20% 91%;
+    --input: 355 20% 91%;
+    --ring: 355 92% 46%;
+
+    --radius: 0.75rem;
+
+    /* CampSum Custom Design Tokens */
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(355 92% 46% / 0.15),
+      hsl(202 100% 62% / 0.1),
+      hsl(355 92% 46% / 0.05)
+    );
+    --gradient-red-card: linear-gradient(
+      135deg,
+      hsl(355 92% 46% / 0.05),
+      hsl(355 92% 46% / 0.02)
+    );
+    --gradient-feature: linear-gradient(
+      135deg,
+      hsl(355 92% 46% / 0.1),
+      hsl(355 92% 46% / 0.05)
+    );
+    --shadow-card: 0 4px 6px -1px hsl(355 92% 46% / 0.1),
+      0 2px 4px -1px hsl(355 92% 46% / 0.06);
+    --shadow-card-hover: 0 20px 25px -5px hsl(355 92% 46% / 0.2),
+      0 10px 10px -5px hsl(355 92% 46% / 0.1);
+    --shadow-navbar: 0 1px 3px 0 hsl(355 92% 46% / 0.1),
+      0 1px 2px 0 hsl(355 92% 46% / 0.06);
+    --shadow-glow: 0 0 40px hsl(355 92% 46% / 0.3);
+
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 202 100% 62%;
+    --primary-foreground: 224 71.4% 4.1%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 355 92% 46%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 355 92% 46%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 202 100% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* CampSum Component Styles */
+  .campsum-card {
+    @apply bg-card text-card-foreground rounded-xl border border-border/50 p-6 transition-all duration-300;
+    box-shadow: var(--shadow-card);
+    background: var(--gradient-red-card);
+  }
+
+  .campsum-card:hover {
+    @apply scale-105 border-primary/30;
+    box-shadow: var(--shadow-card-hover);
+    background: var(--gradient-feature);
+  }
+
+  .campsum-navbar {
+    @apply sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60;
+    box-shadow: var(--shadow-navbar);
+  }
+
+  .campsum-gradient-bg {
+    background: var(--gradient-hero);
+  }
+
+  .campsum-transition {
+    transition: var(--transition-smooth);
+  }
+
+  .campsum-transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Social Media Brand Styles */
+  .social-instagram {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--instagram-start)),
+      hsl(var(--instagram-end))
+    );
+    @apply text-white;
+  }
+
+  .social-whatsapp {
+    background: hsl(var(--whatsapp));
+    @apply text-white;
+  }
+
+  .social-gmail {
+    background: hsl(var(--gmail));
+    @apply text-white;
+  }
+
+  .social-linkedin {
+    background: hsl(var(--linkedin));
+    @apply text-white;
+  }
+
+  .social-facebook {
+    background: hsl(var(--facebook));
+    @apply text-white;
+  }
+
+  /* Enhanced animations */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease infinite;
+}
+
+/* forget page loading animations */
+@keyframes bottom-to-top-fill {
+  from {
+    background-position: 0 0%;
+  }
+  to {
+    background-position: 0 100%;
+  }
+}
+
+/* Wave effect keyframe */
+@keyframes wave-effect {
+  0%,
+  100% {
+    transform: skewX(0deg);
+  }
+  25% {
+    transform: skewX(-3deg);
+  }
+  75% {
+    transform: skewX(3deg);
+  }
+}
+
+.text-fill-animation {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 100% 200%; /* Height double for gradient */
+  animation: bottom-to-top-fill 3s linear infinite,
+    wave-effect 2.5s ease-in-out infinite;
+}
+
+/* Wait Message Fade-in Animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-message {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+/* Dot animation */
+.dot-anim::after {
+  content: ".";
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%,
+  100% {
+    content: ".";
+  }
+  25% {
+    content: "..";
+  }
+  50% {
+    content: "...";
+  }
+  75% {
+    content: "....";
+  }
+}
